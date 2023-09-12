@@ -2,7 +2,7 @@
 
 .navbar{
 
-    padding: 12px 15px;
+    padding: 12px 30px;
     .navbar-brand{
         font-size: 2.4rem;
     }
@@ -38,6 +38,11 @@
                 background-color: $clr-orange;
                 width: 60px;
                 height: 32px;
+                text-align: center;
+                cursor: pointer;
+            }
+            .search-btn i{
+                width: 100%;
             }
 
             @media screen and (max-width: 576px){

@@ -10,24 +10,20 @@ import CartModal from '../CartModal/CartModal'
 
 const Navbar = () => {
 
-  const carts = useSelector(getAllCarts)
-  
-  const [searchTerm, setSearchTerm] = useState("");
+  const dispatch = useDispatch();
+  useEffect(() => {
+     
+      dispatch(fetchAsyncCategories())
+  }, [dispatch]);
 
-  const handleSearchTerm = (e) => {
-    e.preventDefault();
-    setSearchTerm(e.target.value);
-  }
+ const categories = useSelector(getAllCategories)
+ const carts = useSelector(getAllCarts)
 
-    const dispatch = useDispatch();
 
-    useEffect(() => {
-       
-        dispatch(fetchAsyncCategories())
-    }, [dispatch]);
 
-   const categories = useSelector(getAllCategories)
- 
+
+
+
 
 
   return (
@@ -50,16 +46,16 @@ const Navbar = () => {
         <div className='navbar-collapse w-100'>
           <div className='navbar-search bg-white'>
             <div className='flex align-center'>
-              <input type = "text" className='form-control fs-14' placeholder='Search your preferred items here' onChange={(e) => handleSearchTerm(e)} />
-              <NavLink to = {`search/${searchTerm}`} className='text-white search-btn flex align-center justify-center'>
-                  <i className='fa-solid fa-magnifying-glass'></i>
-                </NavLink>
+              <input type = "text" className='form-control fs-14' placeholder='Search your preferred items here'  />
+              <div  className='text-white search-btn flex align-center justify-center'>
+                  <i className='fa-solid fa-magnifying-glass w-full'></i>
+                </div>
             </div>
           </div>
 
           <ul className='navbar-nav flex align-center fs-12 fw-4 font-manrope'>
             {
-              // taking only first 8 categories
+           
               categories.map((category, idx) => (
                 <li className='nav-item no-wrap' key = {idx}>
                   <NavLink to = {`category/${category}`} className='nav-link text-capitalize'>{category.replace("-", " ")}</NavLink>
