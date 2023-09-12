@@ -1,8 +1,16 @@
 import React from 'react'
 import './Header.scss'
 import { NavLink } from 'react-router-dom'
+import Navbar from '../Navbar/Navbar'
+import { useSelector } from 'react-redux'
+import { getAuthData } from '../../redux/authSlice'
 
 const Header = () => {
+
+  const user = useSelector(getAuthData)
+  console.log(user);
+
+
     return (
       <header className='header text-white'>
         <div className='container'>
@@ -12,12 +20,12 @@ const Header = () => {
                 <ul className='flex top-links align-center'>
                   <li>
                     {/* dummy links */}
-                    <NavLink to= "/seller">Seller Center</NavLink>
+                    <p >Seller Center</p>
                   </li>
                   <li className='vert-line'></li>
                   <li>
                     {/* dummy links */}
-                    <NavLink to= "/download">Download</NavLink>
+                    <p >Download</p>
                   </li>
                   <li className='vert-line'></li>
                   <li className='flex align-center'>
@@ -40,25 +48,45 @@ const Header = () => {
               <div className='header-cnt-top-r'>
                 <ul className='top-links flex align-center'>
                   <li>
-                    <NavLink to = "/" className='top-link-itm'>
+                    <div to = "/" className='top-link-itm'>
                       <span className='top-link-itm-ico mx-2'>
                         <i className='fa-solid fa-circle-question'></i>
                       </span>
                       <span className='top-link-itm-txt'>Support</span>
-                    </NavLink>
+                    </div>
                   </li>
-                  <li className='vert-line'></li>
-                  <li>
-                    <NavLink to = "/">
-                      <span className='top-link-itm-txt'>Register</span>
-                    </NavLink>
+                 
+                {
+                  user.name  ? 
+                   <>
+                     <li className='vert-line'></li>
+                  <li >
+                     <span  className='top-link-itm-txt'>{user.name}</span>
                   </li>
-                  <li className='vert-line'></li>
-                  <li>
-                    <NavLink to = "/">
-                      <span className='top-link-itm-txt'>Log in</span>
-                    </NavLink>
-                  </li>
+                   </>
+
+                  : 
+
+                  (
+
+                  <>
+                    <li className='vert-line'></li>
+                    <li>
+                      <NavLink to = "/signup">
+                        <span className='top-link-itm-txt'>Register</span>
+                      </NavLink>
+                    </li>
+                    <li className='vert-line'></li>
+                    <li>
+                      <NavLink to = "/signup">
+                        <span className='top-link-itm-txt'>Log in</span>
+                      </NavLink>
+                    </li>
+                  </>
+
+                  )
+                }
+
                 </ul>
               </div>
             </div>
@@ -68,6 +96,7 @@ const Header = () => {
             </div>
           </div>
         </div>
+        <Navbar/>
       </header>
     )
   }
