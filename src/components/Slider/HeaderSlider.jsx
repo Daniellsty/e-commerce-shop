@@ -9,7 +9,7 @@ import sliderImgs2 from '../../assets/images/slider_img_2.jpg'
 const HeaderSlider = () => {
   let settings = {
     autoplay: true,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 2000,
     arrows: false,
     dots: true,
     infinite: true,
