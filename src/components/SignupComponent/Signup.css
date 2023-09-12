@@ -1,0 +1,70 @@
+.Form{
+    display: flex;
+    flex-direction: column;
+    padding: 10px ;
+    
+    justify-content: center;
+    align-items: center;
+}
+
+.Form .name-container{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+}
+
+.Form .mail-container{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+}
+
+.Form .pass-container{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+}
+
+.phonenumber-container{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+}
+
+.Form button{
+    margin: 20px auto;
+    padding:15px  ;
+    background-color: rgb(249,78,48);
+    font-size: 14px;
+    border-radius: 5px;
+    line-height: 5px;
+
+}
+
+.Form button:enabled{
+
+    color: white;
+}
+
+.passConfirm-container{
+    display: flex;
+    flex-direction: column;
+    margin: 5px auto;
+}
+
+
+
+.error{
+    color: red;
+}
+
+.input{
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-left: 10px;
+  
+}
+
+.input::placeholder{
+    font-size: 13px;
+}
